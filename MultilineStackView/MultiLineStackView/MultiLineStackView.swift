@@ -10,11 +10,10 @@ import UIKit
 
 class MultiLineStackView: UIView {
 
-    var baseStackView: UIStackView = UIStackView(frame: .zero)
-    var stackViews: [UIStackView] {
+    fileprivate var baseStackView: UIStackView = UIStackView(frame: .zero)
+    fileprivate var stackViews: [UIStackView] {
         return baseStackView.arrangedSubviews as! [UIStackView]
     }
-    var views: [UIView] = []
     var viewsInStackViews: [UIView] {
         return stackViews.flatMap { $0.arrangedSubviews }
     }
@@ -59,8 +58,6 @@ class MultiLineStackView: UIView {
             addHorizontalStackView()
         }
         
-        views.append(view)
-        
         if lastStackView.frame.width + view.expectedWidth < self.frame.width {
             // 収まる
             lastStackView.add(view: view)
@@ -77,6 +74,28 @@ class MultiLineStackView: UIView {
     }
     var lastStackView: UIStackView {
         return baseStackView.arrangedSubviews.last as! UIStackView
+    }
+    
+    var horizontalStackViews:[UIStackView] {
+        return baseStackView.arrangedSubviews as! [UIStackView]
+    }
+}
+
+extension MultiLineStackView {
+    var views: [UIView] {
+        return horizontalStackViews.flatMap { $0.arrangedSubviews }
+    }
+    func view(of index:Int) -> UIView? {
+        if index < count {
+            return views[index]
+        }
+        return nil
+    }
+    var count: Int {
+        return views.count
+    }
+    var lastView: UIView? {
+        return views.last
     }
 }
 

@@ -11,12 +11,13 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var multiLineStackView: MultiLineStackView!
+    @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        multiLineStackView.setup(horizontalSpacing: 5, verticalSpacing: 10)
+        multiLineStackView.setup(horizontalSpacing: 5, verticalSpacing: 20)
     }
 
     @IBAction func tapped(_ sender: Any) {
@@ -24,8 +25,15 @@ class ViewController: UIViewController {
         label.text = prefs[Int.random(in: 1 ..< prefs.count)]
         label.backgroundColor = .yellow
 //        label.heightAnchor.constraint(equalToConstant: CGFloat.random(in: 20...35)).isActive = true
-        label.font = UIFont.systemFont(ofSize: CGFloat.random(in: 6...25))
+//        label.font = UIFont.systemFont(ofSize: CGFloat.random(in: 6...25))
         multiLineStackView.addView(view: label)
+        
+        multiLineStackView.layoutIfNeeded()
+        
+        if let v = multiLineStackView.lastView {
+            let rect = v.superview?.convert(v.frame, to: self.view)
+            self.label.text = "\(rect!)"
+        }
     }
 
     
