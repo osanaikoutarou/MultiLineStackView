@@ -58,7 +58,7 @@ class MultiLineStackView: UIView {
             addHorizontalStackView()
         }
         
-        if lastStackView.frame.width + view.expectedWidth < self.frame.width {
+        if lastStackView.frame.width + view.expectedWidth + (CGFloat(lastStackView.arrangedSubviews.count) * lastStackView.spacing) < self.frame.width {
             // 収まる
             lastStackView.add(view: view)
         }
