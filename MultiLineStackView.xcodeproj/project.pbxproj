@@ -11,7 +11,6 @@
 		1E7AF7FE222B81B800F845C2 /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E7AF7FD222B81B800F845C2 /* SampleView.xib */; };
 		1E7AF800222B861200F845C2 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AF7FF222B861200F845C2 /* ButtonView.swift */; };
 		1E7AF803222B959B00F845C2 /* UIView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AF802222B959B00F845C2 /* UIView+Utility.swift */; };
-		1E889C95222A7C7500E4B3B6 /* UIView+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E889C94222A7C7500E4B3B6 /* UIView+Transform.swift */; };
 		DA13B7DF22277D5200DDBA80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13B7DE22277D5200DDBA80 /* AppDelegate.swift */; };
 		DA13B7E122277D5200DDBA80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13B7E022277D5200DDBA80 /* ViewController.swift */; };
 		DA13B7E422277D5200DDBA80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA13B7E222277D5200DDBA80 /* Main.storyboard */; };
@@ -25,7 +24,6 @@
 		1E7AF7FD222B81B800F845C2 /* SampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
 		1E7AF7FF222B861200F845C2 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		1E7AF802222B959B00F845C2 /* UIView+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utility.swift"; sourceTree = "<group>"; };
-		1E889C94222A7C7500E4B3B6 /* UIView+Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Transform.swift"; sourceTree = "<group>"; };
 		DA13B7DB22277D5200DDBA80 /* MultilineStackView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultilineStackView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA13B7DE22277D5200DDBA80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA13B7E022277D5200DDBA80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 				DA13B7E522277D5300DDBA80 /* Assets.xcassets */,
 				DA13B7E722277D5300DDBA80 /* LaunchScreen.storyboard */,
 				DA13B7EA22277D5300DDBA80 /* Info.plist */,
-				1E889C94222A7C7500E4B3B6 /* UIView+Transform.swift */,
 			);
 			path = MultilineStackView;
 			sourceTree = "<group>";
@@ -181,7 +178,6 @@
 				1E7AF7FC222B819D00F845C2 /* SampleView.swift in Sources */,
 				DA13B7F222277E0900DDBA80 /* MultiLineStackView.swift in Sources */,
 				1E7AF800222B861200F845C2 /* ButtonView.swift in Sources */,
-				1E889C95222A7C7500E4B3B6 /* UIView+Transform.swift in Sources */,
 				DA13B7E122277D5200DDBA80 /* ViewController.swift in Sources */,
 				1E7AF803222B959B00F845C2 /* UIView+Utility.swift in Sources */,
 				DA13B7DF22277D5200DDBA80 /* AppDelegate.swift in Sources */,
