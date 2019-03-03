@@ -18,14 +18,7 @@ class MultiLineStackView: UIView {
         return stackViews.flatMap { $0.arrangedSubviews }
     }
     
-    var automaticHeight: Bool = true
-    var lineHeight: CGFloat = 50.0
     var spacing:(horizontal:CGFloat, vertical:CGFloat) = (0,0)
-    
-//    required init(coder: NSCoder) {
-//        super.init(coder: coder)!
-//        initialize()
-//    }
     
     func setup(horizontalSpacing:CGFloat, verticalSpacing:CGFloat) {
         spacing = (horizontalSpacing, verticalSpacing)
@@ -43,6 +36,7 @@ class MultiLineStackView: UIView {
         stackView.axis = .horizontal
         stackView.spacing = spacing.horizontal
         baseStackView.add(view: stackView)
+        baseStackView.layoutIfNeeded()        
     }
     
     func clear() {
@@ -58,7 +52,7 @@ class MultiLineStackView: UIView {
             addHorizontalStackView()
         }
         
-        if lastStackView.frame.width + view.expectedWidth + (CGFloat(lastStackView.arrangedSubviews.count) * lastStackView.spacing) < self.frame.width {
+        if lastStackView.frame.width + view.expectedWidth() + (CGFloat(lastStackView.arrangedSubviews.count) * lastStackView.spacing) < self.frame.width {
             // 収まる
             lastStackView.add(view: view)
         }
@@ -67,6 +61,19 @@ class MultiLineStackView: UIView {
             addHorizontalStackView()
             lastStackView.add(view: view)
         }
+    }
+    
+    func removeLast() {
+        
+        if count <= 0 {
+            return
+        }
+        
+        lastStackView.removeLast()
+        if lastStackView.count == 0 {
+            baseStackView.removeLast()
+        }
+        
     }
     
     var existStackView: Bool {
@@ -97,7 +104,16 @@ extension MultiLineStackView {
     var lastView: UIView? {
         return views.last
     }
+    var firstView: UIView? {
+        return views.first
+    }
 }
+
+protocol MultiLineStackViewProtocol {
+    var expectedWidth2: CGFloat { get }
+}
+
+// MARK: UIStackView
 
 extension UIStackView {
     func add(view: UIView) {
@@ -109,10 +125,22 @@ extension UIStackView {
             view.removeFromSuperview()
         }
     }
+    var count: Int {
+        return self.arrangedSubviews.count
+    }
 }
 
+// MARK: UIView
+
 extension UIView {
-    var expectedWidth: CGFloat {
+    
+    //var expectedWidth: CGFloat {
+    func expectedWidth() -> CGFloat {
+        
+        if self is SampleView {
+            return (self as! MultiLineStackViewProtocol).expectedWidth2
+        }
+        
         if let widthConstraint = constraints.first(where: { $0.firstAttribute == .width }) {
             return widthConstraint.constant
         }
@@ -129,9 +157,9 @@ extension UIView {
 
 extension UIView {
     
+    // 親viewにfitさせる
     func bindFrameToSuperviewBounds() {
         guard let superview = self.superview else {
-            print("Error! `superview` was nil – call `addSubview(view: UIView)` before calling `bindFrameToSuperviewBounds()` to fix this.")
             return
         }
         
@@ -143,6 +171,8 @@ extension UIView {
         
     }
 }
+
+// MARK: String
 
 extension String {
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {

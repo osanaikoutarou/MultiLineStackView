@@ -18,39 +18,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkx-xz-wj0" customClass="MultiLineStackView" customModule="MultilineStackView" customModuleProvider="target">
-                                <rect key="frame" x="25" y="136" width="325" height="128"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vU-D8-65D">
+                                <rect key="frame" x="25" y="120" width="325" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xh-WL-imu">
-                                <rect key="frame" x="164" y="448" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkx-xz-wj0" customClass="MultiLineStackView" customModule="MultilineStackView" customModuleProvider="target">
+                                <rect key="frame" x="25" y="120" width="325" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" placeholder="YES" id="77I-g5-Mb3"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xh-WL-imu">
+                                <rect key="frame" x="20" y="542" width="74" height="30"/>
+                                <state key="normal" title="AddButton"/>
                                 <connections>
                                     <action selector="tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9fd-cz-Yca"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01j-G8-Hzw">
-                                <rect key="frame" x="32" y="308" width="308" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hel-l5-NvY">
+                                <rect key="frame" x="114" y="542" width="101" height="30"/>
+                                <state key="normal" title="RemoveButton"/>
+                                <connections>
+                                    <action selector="tappedRemove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gzq-T5-Av2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01j-G8-Hzw">
+                                <rect key="frame" x="20" y="592" width="335" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="4s7-aa-OlO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvR-0j-zfr">
-                                <rect key="frame" x="281" y="473" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="tapped2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nta-el-t8r"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="1xh-WL-imu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="17F-Ep-H2K"/>
+                            <constraint firstItem="01j-G8-Hzw" firstAttribute="top" secondItem="1xh-WL-imu" secondAttribute="bottom" constant="20" id="JTg-vs-YMK"/>
+                            <constraint firstItem="9vU-D8-65D" firstAttribute="leading" secondItem="zkx-xz-wj0" secondAttribute="leading" id="MXL-bI-IeV"/>
                             <constraint firstItem="zkx-xz-wj0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="MuP-oJ-Nbv"/>
                             <constraint firstItem="zkx-xz-wj0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="PO6-wc-N26"/>
+                            <constraint firstItem="01j-G8-Hzw" firstAttribute="top" secondItem="hel-l5-NvY" secondAttribute="bottom" constant="20" id="PVt-4a-u0h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="01j-G8-Hzw" secondAttribute="bottom" constant="50" id="YOZ-jX-cGL"/>
+                            <constraint firstItem="01j-G8-Hzw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="b22-SQ-nzt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="01j-G8-Hzw" secondAttribute="trailing" constant="20" id="fPR-by-Vk4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zkx-xz-wj0" secondAttribute="trailing" constant="25" id="k7L-8v-Qix"/>
+                            <constraint firstItem="hel-l5-NvY" firstAttribute="leading" secondItem="1xh-WL-imu" secondAttribute="trailing" constant="20" id="tpa-CC-A3x"/>
+                            <constraint firstItem="9vU-D8-65D" firstAttribute="top" secondItem="zkx-xz-wj0" secondAttribute="top" id="uMV-So-Oqb"/>
+                            <constraint firstItem="9vU-D8-65D" firstAttribute="bottom" secondItem="zkx-xz-wj0" secondAttribute="bottom" id="wIK-Nm-ZaV"/>
+                            <constraint firstItem="9vU-D8-65D" firstAttribute="trailing" secondItem="zkx-xz-wj0" secondAttribute="trailing" id="yPy-XN-yXy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
