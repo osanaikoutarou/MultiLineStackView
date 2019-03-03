@@ -52,6 +52,13 @@ class MultiLineStackView: UIView {
             addHorizontalStackView()
         }
         
+        print("---")
+        print(lastStackView.frame.width)
+        print(view.expectedWidth())
+        print((CGFloat(lastStackView.arrangedSubviews.count) * lastStackView.spacing))
+        print(lastStackView.frame.width + view.expectedWidth() + (CGFloat(lastStackView.arrangedSubviews.count) * lastStackView.spacing))
+        print("vs")
+        print(self.frame.width)
         if lastStackView.frame.width + view.expectedWidth() + (CGFloat(lastStackView.arrangedSubviews.count) * lastStackView.spacing) < self.frame.width {
             // 収まる
             lastStackView.add(view: view)
@@ -110,7 +117,7 @@ extension MultiLineStackView {
 }
 
 protocol MultiLineStackViewProtocol {
-    var expectedWidth2: CGFloat { get }
+    var calcWidth: CGFloat { get }
 }
 
 // MARK: UIStackView
@@ -137,8 +144,9 @@ extension UIView {
     //var expectedWidth: CGFloat {
     func expectedWidth() -> CGFloat {
         
-        if self is SampleView {
-            return (self as! MultiLineStackViewProtocol).expectedWidth2
+        if self is MultiLineStackViewProtocol {
+            print("multiline")
+            return (self as! MultiLineStackViewProtocol).calcWidth
         }
         
         if let widthConstraint = constraints.first(where: { $0.firstAttribute == .width }) {

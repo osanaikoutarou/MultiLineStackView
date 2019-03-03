@@ -25,18 +25,14 @@ class ViewController: UIViewController {
     @IBAction func tapped(_ sender: Any) {
         let button = SampleView(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
         button.setup(title: samples[Int.random(in: 1 ..< samples.count)])
-
-        button.doSomethingAllSuperView { (view) in
-            view.isUserInteractionEnabled = true
-        }
-        button.doSomethingAllSuperView { (view) in
-            view.isUserInteractionEnabled = true
-        }
         
         multiLineStackView.addView(view: button)
-        
         multiLineStackView.layoutIfNeeded()
-        
+
+        printLastViewPosition()
+    }
+    
+    func printLastViewPosition() {
         if let v = multiLineStackView.lastView {
             let rect = v.superview?.convert(v.frame, to: self.view)
             self.label.text = "\(rect!)"

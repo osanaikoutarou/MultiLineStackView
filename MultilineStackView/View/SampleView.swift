@@ -40,10 +40,10 @@ class SampleView: UIView {
 }
 
 extension SampleView: MultiLineStackViewProtocol {
-    var expectedWidth2: CGFloat {
+    var calcWidth: CGFloat {
         let labelWidth = label.text!.width(withConstrainedHeight: label.frame.height, font: label.font)
-        let left = label.constraints.first(where: { $0.firstAttribute == NSLayoutConstraint.Attribute.leading })?.constant ?? 0
-        let right = label.constraints.first(where: { $0.firstAttribute == NSLayoutConstraint.Attribute.trailing})?.constant ?? 0
+        let left:CGFloat = 10
+        let right:CGFloat = 10
         return labelWidth + left + right
     }
 }
