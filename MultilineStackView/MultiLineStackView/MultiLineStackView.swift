@@ -51,14 +51,8 @@ class MultiLineStackView: UIView {
         if !existStackView {
             addHorizontalStackView()
         }
-        
-        print("---")
-        print(lastStackView.frame.width)
-        print(view.expectedWidth())
-        print((CGFloat(lastStackView.arrangedSubviews.count) * lastStackView.spacing))
-        print(lastStackView.frame.width + view.expectedWidth() + (CGFloat(lastStackView.arrangedSubviews.count) * lastStackView.spacing))
-        print("vs")
-        print(self.frame.width)
+
+        // 計算して、収まらない場合はHorizontalStackViewを追加
         if lastStackView.frame.width + view.expectedWidth() + (CGFloat(lastStackView.arrangedSubviews.count) * lastStackView.spacing) < self.frame.width {
             // 収まる
             lastStackView.add(view: view)
@@ -89,7 +83,6 @@ class MultiLineStackView: UIView {
     var lastStackView: UIStackView {
         return baseStackView.arrangedSubviews.last as! UIStackView
     }
-    
     var horizontalStackViews:[UIStackView] {
         return baseStackView.arrangedSubviews as! [UIStackView]
     }
