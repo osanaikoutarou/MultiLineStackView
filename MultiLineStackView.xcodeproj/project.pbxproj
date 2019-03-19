@@ -11,6 +11,11 @@
 		1E7AF7FE222B81B800F845C2 /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E7AF7FD222B81B800F845C2 /* SampleView.xib */; };
 		1E7AF800222B861200F845C2 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AF7FF222B861200F845C2 /* ButtonView.swift */; };
 		1E7AF803222B959B00F845C2 /* UIView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AF802222B959B00F845C2 /* UIView+Utility.swift */; };
+		DA0B39F22240E84E00C33628 /* GridStackViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B39F12240E84E00C33628 /* GridStackViewViewController.swift */; };
+		DA0B39F52240E9BE00C33628 /* GridStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B39F42240E9BE00C33628 /* GridStackView.swift */; };
+		DA0B39F72240EC1E00C33628 /* UIStackVIew+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B39F62240EC1E00C33628 /* UIStackVIew+Utility.swift */; };
+		DA0B39FA2240F39B00C33628 /* SampleView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B39F92240F39B00C33628 /* SampleView2.swift */; };
+		DA0B39FC2240F3B000C33628 /* SampleView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0B39FB2240F3B000C33628 /* SampleView2.xib */; };
 		DA13B7DF22277D5200DDBA80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13B7DE22277D5200DDBA80 /* AppDelegate.swift */; };
 		DA13B7E122277D5200DDBA80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13B7E022277D5200DDBA80 /* ViewController.swift */; };
 		DA13B7E422277D5200DDBA80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA13B7E222277D5200DDBA80 /* Main.storyboard */; };
@@ -24,6 +29,11 @@
 		1E7AF7FD222B81B800F845C2 /* SampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
 		1E7AF7FF222B861200F845C2 /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		1E7AF802222B959B00F845C2 /* UIView+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utility.swift"; sourceTree = "<group>"; };
+		DA0B39F12240E84E00C33628 /* GridStackViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStackViewViewController.swift; sourceTree = "<group>"; };
+		DA0B39F42240E9BE00C33628 /* GridStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStackView.swift; sourceTree = "<group>"; };
+		DA0B39F62240EC1E00C33628 /* UIStackVIew+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackVIew+Utility.swift"; sourceTree = "<group>"; };
+		DA0B39F92240F39B00C33628 /* SampleView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView2.swift; sourceTree = "<group>"; };
+		DA0B39FB2240F3B000C33628 /* SampleView2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView2.xib; sourceTree = "<group>"; };
 		DA13B7DB22277D5200DDBA80 /* MultilineStackView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultilineStackView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA13B7DE22277D5200DDBA80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA13B7E022277D5200DDBA80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +61,8 @@
 				1E7AF7FB222B819D00F845C2 /* SampleView.swift */,
 				1E7AF7FD222B81B800F845C2 /* SampleView.xib */,
 				1E7AF7FF222B861200F845C2 /* ButtonView.swift */,
+				DA0B39FB2240F3B000C33628 /* SampleView2.xib */,
+				DA0B39F92240F39B00C33628 /* SampleView2.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -59,8 +71,25 @@
 			isa = PBXGroup;
 			children = (
 				1E7AF802222B959B00F845C2 /* UIView+Utility.swift */,
+				DA0B39F62240EC1E00C33628 /* UIStackVIew+Utility.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		DA0B39F02240E81400C33628 /* GridStackViewViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA0B39F12240E84E00C33628 /* GridStackViewViewController.swift */,
+			);
+			path = GridStackViewViewController;
+			sourceTree = "<group>";
+		};
+		DA0B39F32240E92B00C33628 /* GridStackView */ = {
+			isa = PBXGroup;
+			children = (
+				DA0B39F42240E9BE00C33628 /* GridStackView.swift */,
+			);
+			path = GridStackView;
 			sourceTree = "<group>";
 		};
 		DA13B7D222277D5200DDBA80 = {
@@ -82,9 +111,11 @@
 		DA13B7DD22277D5200DDBA80 /* MultilineStackView */ = {
 			isa = PBXGroup;
 			children = (
+				DA0B39F02240E81400C33628 /* GridStackViewViewController */,
 				1E7AF801222B957500F845C2 /* Utility */,
 				1E7AF7FA222B817200F845C2 /* View */,
 				DA13B7F022277DCD00DDBA80 /* MultiLineStackView */,
+				DA0B39F32240E92B00C33628 /* GridStackView */,
 				DA13B7DE22277D5200DDBA80 /* AppDelegate.swift */,
 				DA13B7E022277D5200DDBA80 /* ViewController.swift */,
 				DA13B7E222277D5200DDBA80 /* Main.storyboard */,
@@ -163,6 +194,7 @@
 			files = (
 				1E7AF7FE222B81B800F845C2 /* SampleView.xib in Resources */,
 				DA13B7E922277D5300DDBA80 /* LaunchScreen.storyboard in Resources */,
+				DA0B39FC2240F3B000C33628 /* SampleView2.xib in Resources */,
 				DA13B7E622277D5300DDBA80 /* Assets.xcassets in Resources */,
 				DA13B7E422277D5200DDBA80 /* Main.storyboard in Resources */,
 			);
@@ -175,10 +207,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA0B39F22240E84E00C33628 /* GridStackViewViewController.swift in Sources */,
 				1E7AF7FC222B819D00F845C2 /* SampleView.swift in Sources */,
 				DA13B7F222277E0900DDBA80 /* MultiLineStackView.swift in Sources */,
+				DA0B39FA2240F39B00C33628 /* SampleView2.swift in Sources */,
 				1E7AF800222B861200F845C2 /* ButtonView.swift in Sources */,
+				DA0B39F72240EC1E00C33628 /* UIStackVIew+Utility.swift in Sources */,
 				DA13B7E122277D5200DDBA80 /* ViewController.swift in Sources */,
+				DA0B39F52240E9BE00C33628 /* GridStackView.swift in Sources */,
 				1E7AF803222B959B00F845C2 /* UIView+Utility.swift in Sources */,
 				DA13B7DF22277D5200DDBA80 /* AppDelegate.swift in Sources */,
 			);

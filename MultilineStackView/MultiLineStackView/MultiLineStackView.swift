@@ -113,23 +113,6 @@ protocol MultiLineStackViewProtocol {
     var calcWidth: CGFloat { get }
 }
 
-// MARK: UIStackView
-
-extension UIStackView {
-    func add(view: UIView) {
-        addArrangedSubview(view)
-    }
-    func removeLast() {
-        if let view = arrangedSubviews.last {
-            removeArrangedSubview(view)
-            view.removeFromSuperview()
-        }
-    }
-    var count: Int {
-        return self.arrangedSubviews.count
-    }
-}
-
 // MARK: UIView
 
 extension UIView {
@@ -153,23 +136,6 @@ extension UIView {
                 return frame.size.width
             }
         }
-    }
-}
-
-extension UIView {
-    
-    // 親viewにfitさせる
-    func bindFrameToSuperviewBounds() {
-        guard let superview = self.superview else {
-            return
-        }
-        
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.topAnchor.constraint(equalTo: superview.topAnchor, constant: 0).isActive = true
-        self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: 0).isActive = true
-        self.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 0).isActive = true
-        self.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: 0).isActive = true
-        
     }
 }
 
