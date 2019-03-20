@@ -34,46 +34,83 @@ class GridStackView: UIView {
         baseStackView.bindFrameToSuperviewBounds()
         
         for i in 0..<columnNum {
-            addHorizontalStackView(isHeader: i == 0)
+            addRowStackView(isHeader: i == 0)
         }
         
+        setupDesign()
+    }
+    
+    private func setupDesign() {
         self.backgroundColor = UIColor(white: 0.8, alpha: 1)
         self.layer.borderColor = UIColor(white: 0.8, alpha: 1).cgColor
         self.layer.borderWidth = 1
     }
     
-    func addHorizontalStackView(isHeader: Bool) {
+    func addRowStackView(isHeader: Bool) {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .horizontal
         baseStackView.add(view: stackView)
         baseStackView.layoutIfNeeded()
         
-        stackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        stackView.widthAnchor.constraint(equalToConstant: baseStackView.frame.width).isActive = true
         
         stackView.spacing = 1
         
         for i in 0..<rowNum {
-            addCellToHorizontalStackView(horizontalStackView: stackView, isHeader: isHeader)
+            addCellToRowStackView(rowStackView: stackView, isHeader: isHeader)
         }
     }
     
-    func addCellToHorizontalStackView(horizontalStackView: UIStackView, isHeader:Bool) {
+    func addCellToRowStackView(rowStackView: UIStackView, isHeader:Bool) {
         guard let view = delegate?.cell() else {
             return
         }
-        view.widthAnchor.constraint(equalToConstant: self.frame.width/CGFloat(columnNum) ).isActive = true
+//        view.widthAnchor.constraint(equalToConstant: self.frame.width/CGFloat(columnNum) ).isActive = true
         if isHeader {
             view.backgroundColor = UIColor(white: 0.9, alpha: 1)
         }
         else {
             view.backgroundColor = .white
         }
-        horizontalStackView.add(view: view)
-        horizontalStackView.layoutIfNeeded()
+        rowStackView.add(view: view)
+        rowStackView.layoutIfNeeded()
     }
-
+    
+    func rowStackView(row: Int) -> UIStackView? {
+        return baseStackView.arrangedSubviews[row] as? UIStackView
+    }
+    
+    func cell(row: Int, column: Int) -> UIView? {
+        if let rowStackView = baseStackView.arrangedSubviews[row] as? UIStackView {
+            return rowStackView.arrangedSubviews[column]
+        }
+        return nil
+    }
+    
+    func layoutCells() {
+        for row in 0..<rowNum {
+            for column in 0..<columnNum {
+                if let size = delegate?.size(row: row, column: column) {
+                    rowStackView(row: row)?.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+                    cell(row: row, column: column)?.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+                    
+                    print("row:\(row) columu:\(column)  size:(\(size)")
+                    rowStackView(row: row)?.layoutIfNeeded()
+                    baseStackView.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    var width: CGFloat {
+        self.superview?.layoutIfNeeded()
+        return self.frame.width
+    }
+    
 }
 
 protocol GridStackViewProtocol {
     func cell() -> UIView
+    
+    func size(row: Int, column:Int) -> CGSize
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GridStackViewLabelCellView" customModule="MultilineStackView" customModuleProvider="target">
+            <connections>
+                <outlet property="label" destination="jmC-gb-beT" id="ds5-Dl-16d"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="118" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-WT-yam" customClass="ButtonView" customModule="MultilineStackView" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="118" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmC-gb-beT">
+                            <rect key="frame" x="5" y="5" width="108" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <string key="text">レターパックライト</string>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="jmC-gb-beT" firstAttribute="top" secondItem="ni2-WT-yam" secondAttribute="top" constant="5" id="Pt3-S5-cRQ"/>
+                        <constraint firstAttribute="bottom" secondItem="jmC-gb-beT" secondAttribute="bottom" constant="5" id="Zpa-BI-6cu"/>
+                        <constraint firstAttribute="trailing" secondItem="jmC-gb-beT" secondAttribute="trailing" constant="5" id="jCI-eT-Sws"/>
+                        <constraint firstItem="jmC-gb-beT" firstAttribute="leading" secondItem="ni2-WT-yam" secondAttribute="leading" constant="5" id="py7-CM-YYG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ni2-WT-yam" secondAttribute="trailing" id="LVc-xd-bBF"/>
+                <constraint firstAttribute="bottom" secondItem="ni2-WT-yam" secondAttribute="bottom" id="P4W-mp-1FN"/>
+                <constraint firstItem="ni2-WT-yam" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PGX-dB-zYD"/>
+                <constraint firstItem="ni2-WT-yam" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="knA-Pk-Ln1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="109" y="61"/>
+        </view>
+    </objects>
+</document>
