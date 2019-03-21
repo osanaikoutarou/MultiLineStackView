@@ -33,8 +33,8 @@ class GridStackView: UIView {
         self.addSubview(baseStackView)
         baseStackView.bindFrameToSuperviewBounds()
         
-        for i in 0..<columnNum {
-            addRowStackView(isHeader: i == 0)
+        for row in 0..<rowNum {
+            addRowStackView(row: row)
         }
         
         setupDesign()
@@ -46,7 +46,7 @@ class GridStackView: UIView {
         self.layer.borderWidth = 1
     }
     
-    func addRowStackView(isHeader: Bool) {
+    func addRowStackView(row: Int) {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .horizontal
         baseStackView.add(view: stackView)
@@ -56,17 +56,16 @@ class GridStackView: UIView {
         
         stackView.spacing = 1
         
-        for i in 0..<rowNum {
-            addCellToRowStackView(rowStackView: stackView, isHeader: isHeader)
+        for column in 0..<columnNum {
+            addCellToRowStackView(rowStackView: stackView, row: row, column: column)
         }
     }
     
-    func addCellToRowStackView(rowStackView: UIStackView, isHeader:Bool) {
-        guard let view = delegate?.cell() else {
+    func addCellToRowStackView(rowStackView: UIStackView, row: Int, column: Int) {
+        guard let view = delegate?.cell(for: self, row: row, column: column) else {
             return
         }
-//        view.widthAnchor.constraint(equalToConstant: self.frame.width/CGFloat(columnNum) ).isActive = true
-        if isHeader {
+        if row == 0 {
             view.backgroundColor = UIColor(white: 0.9, alpha: 1)
         }
         else {
@@ -90,7 +89,7 @@ class GridStackView: UIView {
     func layoutCells() {
         for row in 0..<rowNum {
             for column in 0..<columnNum {
-                if let size = delegate?.size(row: row, column: column) {
+                if let size = delegate?.size(for: self, row: row, column: column) {
                     rowStackView(row: row)?.heightAnchor.constraint(equalToConstant: size.height).isActive = true
                     cell(row: row, column: column)?.widthAnchor.constraint(equalToConstant: size.width).isActive = true
                     
@@ -110,7 +109,6 @@ class GridStackView: UIView {
 }
 
 protocol GridStackViewProtocol {
-    func cell() -> UIView
-    
-    func size(row: Int, column:Int) -> CGSize
+    func cell(for gridStackView:GridStackView, row: Int, column: Int) -> UIView
+    func size(for gridStackView:GridStackView, row: Int, column: Int) -> CGSize
 }

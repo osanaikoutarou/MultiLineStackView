@@ -24,7 +24,7 @@ class GridStackViewViewController: NotificationsViewController {
 }
 
 extension GridStackViewViewController: GridStackViewProtocol {
-    func cell() -> UIView {
+    func cell(for gridStackView: GridStackView, row: Int, column: Int) -> UIView {
         let labelView = GridStackViewLabelCellView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
         labelView.setup(text: "hogehogehoge")
         return labelView
@@ -37,7 +37,7 @@ extension GridStackViewViewController: GridStackViewProtocol {
         return (widthWeight[column] / widthWeight.sum) * gridStackView.width
     }
     
-    func size(row: Int, column: Int) -> CGSize {
+    func size(for gridStackView: GridStackView, row: Int, column: Int) -> CGSize {
         return CGSize(width: widthWithWeight(column: column) , height: 100)
     }
 }
